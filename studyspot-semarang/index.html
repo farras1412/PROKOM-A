@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudySpot Semarang – Rekomendasi Tempat Nugas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== HALAMAN 1: ONBOARDING ===== -->
+  <section id="page-home" class="page active">
+    <div class="home-bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="home-content">
+      <div class="home-badge">✦ Untuk Mahasiswa Semarang</div>
+      <h1 class="home-title">Temukan Tempat<br /><em>Nugas Terbaikmu</em></h1>
+      <p class="home-desc">
+        Sistem rekomendasi cerdas berbasis bobot preferensi pengguna.<br />
+        Kafe, perpustakaan, dan co-working space — disesuaikan dengan kebutuhanmu.
+      </p>
+      <div class="home-stats">
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Tempat</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Kriteria</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Gratis</span></div>
+      </div>
+      <button class="btn-primary" onclick="showPage('page-form')">Mulai Cari Tempat →</button>
+
+      <!-- Link ke favorit -->
+      <button class="btn-ghost" onclick="showPage('page-favorites')">♡ Lihat Tempat Tersimpan</button>
+    </div>
+    <div class="home-illustration">
+      <div class="illus-card illus-card-1">
+        <span class="illus-icon">☕</span>
+        <span class="illus-text">Kafe Nugas</span>
+      </div>
+      <div class="illus-card illus-card-2">
+        <span class="illus-icon">📚</span>
+        <span class="illus-text">Perpustakaan</span>
+      </div>
+      <div class="illus-card illus-card-3">
+        <span class="illus-icon">💡</span>
+        <span class="illus-text">Co-working</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HALAMAN 2: FORM PREFERENSI ===== -->
+  <section id="page-form" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="showPage('page-home')">← Kembali</button>
+      <h2 class="page-title">Atur Preferensimu</h2>
+      <p class="page-subtitle">Pilih kriteria yang paling penting bagimu</p>
+    </div>
+
+    <div class="form-container">
+      <!-- Jenis Tempat -->
+      <div class="form-group">
+        <label class="form-label">🏠 Jenis Tempat</label>
+        <div class="chip-group" id="chip-jenis">
+          <button class="chip active" data-value="semua">Semua</button>
+          <button class="chip" data-value="kafe">Kafe</button>
+          <button class="chip" data-value="perpustakaan">Perpustakaan</button>
+          <button class="chip" data-value="coworking">Co-working</button>
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <div class="form-group">
+        <label class="form-label">💰 Budget</label>
+        <div class="chip-group" id="chip-budget">
+          <button class="chip active" data-value="semua">Semua</button>
+          <button class="chip" data-value="murah">Murah</button>
+          <button class="chip" data-value="sedang">Sedang</button>
+          <button class="chip" data-value="mahal">Mahal</button>
+        </div>
+      </div>
+
+      <!-- Suasana -->
+      <div class="form-group">
+        <label class="form-label">🎧 Suasana</label>
+        <div class="chip-group" id="chip-suasana">
+          <button class="chip active" data-value="semua">Semua</button>
+          <button class="chip" data-value="tenang">Tenang</button>
+          <button class="chip" data-value="sedang">Sedang</button>
+          <button class="chip" data-value="ramai">Ramai</button>
+        </div>
+      </div>
+
+      <!-- Fasilitas -->
+      <div class="form-group">
+        <label class="form-label">⚡ Fasilitas yang Dibutuhkan</label>
+        <div class="toggle-list">
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-icon">📶</span>
+              <div>
+                <p class="toggle-name">WiFi Tersedia</p>
+                <p class="toggle-desc">Koneksi internet gratis</p>
+              </div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="pref-wifi" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-icon">🔌</span>
+              <div>
+                <p class="toggle-name">Colokan Listrik</p>
+                <p class="toggle-desc">Untuk charger laptop/HP</p>
+              </div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="pref-colokan" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-icon">🪑</span>
+              <div>
+                <p class="toggle-name">Kursi Nyaman</p>
+                <p class="toggle-desc">Enak untuk duduk lama</p>
+              </div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="pref-kursi" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-icon">🌙</span>
+              <div>
+                <p class="toggle-name">Buka Sampai Malam</p>
+                <p class="toggle-desc">Masih buka setelah pukul 21.00</p>
+              </div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="pref-malam" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-icon">📖</span>
+              <div>
+                <p class="toggle-name">Cocok Belajar Lama</p>
+                <p class="toggle-desc">Tidak dibatasi waktu duduk</p>
+              </div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="pref-belajar" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary full-width" onclick="hitungRekomendasi()">
+        Cari Rekomendasi ✦
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== HALAMAN 3: HASIL REKOMENDASI ===== -->
+  <section id="page-results" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="showPage('page-form')">← Ubah Preferensi</button>
+      <h2 class="page-title">Hasil Rekomendasi</h2>
+      <p class="page-subtitle" id="result-subtitle">Menampilkan tempat terbaik untukmu</p>
+    </div>
+    <div id="results-container" class="results-container"></div>
+  </section>
+
+  <!-- ===== HALAMAN 4: DETAIL TEMPAT ===== -->
+  <section id="page-detail" class="page">
+    <div class="page-header">
+      <button class="btn-back" id="detail-back-btn">← Kembali ke Hasil</button>
+      <h2 class="page-title">Detail Tempat</h2>
+    </div>
+    <div id="detail-container" class="detail-container"></div>
+  </section>
+
+  <!-- ===== HALAMAN 5: FAVORIT ===== -->
+  <section id="page-favorites" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="showPage('page-home')">← Beranda</button>
+      <h2 class="page-title">Tempat Tersimpan</h2>
+      <p class="page-subtitle">Tempat favoritmu ada di sini</p>
+    </div>
+    <div id="favorites-container" class="results-container"></div>
+  </section>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
